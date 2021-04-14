@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.163.1/containers/python-3-postgres
+{
+	"name": "Rapids Dask PyTorch Ubi8 Dev",
+
+	"initializeCommand": "bash -i .devcontainer/scripts/initialize.sh",
+
+	// Use dockercompose settings
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "rdp-vscode-dev-build",
+	"workspaceFolder": "/workspaces/dev",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.formatting.blackPath": "/opt/conda/envs/rdp/bin/black",
+		"python.defaultInterpreterPath": "/opt/conda/envs/rdp/bin/python",
+		"python.pythonPath": "/opt/conda/envs/rdp/bin/python",
+	},
+
+	// // Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-pg",
+		"redhat.vscode-yaml",
+		"njpwerner.autodocstring"
+	],
+
+	"postCreateCommand": "bash -i /workspaces/rdp-vscode-devcontainer/.devcontainer/scripts/postcreate.sh",
+}
