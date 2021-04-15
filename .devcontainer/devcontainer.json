@@ -8,7 +8,7 @@
 	// Use dockercompose settings
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "rdp-vscode-dev-build",
-	"workspaceFolder": "/workspaces/dev",
+	"workspaceFolder": "/workspaces/rdp-vscode-devcontainer",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 

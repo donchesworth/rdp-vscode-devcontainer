@@ -6,7 +6,10 @@ unalias cp
 cp -r $DOTDEVDIR/ipython_config.json $IPYTHONDIR/profile_default
 
 for dir in $BASEDIR/*; do
-    pip install -e "$dir"
+    if [ -f "${dir}/setup.py" ]; then
+        pip install -e "$dir"
+        echo "${dir} setup"
+    fi
 done
 
 # from https://github.com/microsoft/vscode-dev-containers/blob/master/container-templates/docker-compose/.devcontainer/library-scripts/common-debian.sh
