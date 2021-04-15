@@ -32,12 +32,12 @@ Don't do it yet!
 ### .devcontainer/.env 
 
 First, you'll definitely need to update the .env file:
-- REGISTRY_HOSTNAME: This is the docker registry that you plan to push your dev container for testing (and prod)
-- PROJECT_ID: This is your area in the registry (usually either your username, or your company/org/dept name, e.g. "cee-analytics")
-- BASE_IMAGE: This is the rdp base container you'll use. You could probably use something like `nvcr.io/nvidia/rapidsai/rapidsai:0.18-cuda10.2-base-centos7` and add PyTorch on your own, but it might be better to build the base image with rdp al
-- DEV_IMAGE: This is the name of the dev container image you'll be making (e.g. "solution-prediction-dev")
-- I wouldn't change BASEDIR, DOTDEVDIR, PIP_CONFIG_FILE, or IPYTHONDIR unless you have a good reason why
-- Add any additional environment variables you might need in the container (e.g. TRUSTED_DOCKER="True", REGISTRY_USER, REGISTRY_TOKEN)
+- `REGISTRY_HOSTNAME`: This is the docker registry that you plan to push your dev container for testing (and prod)
+- `PROJECT_ID`: This is your area in the registry (usually either your username, or your company/org/dept name, e.g. "cee-analytics")
+- `BASE_IMAGE`: This is the rdp base container you'll use. You could probably use something like `nvcr.io/nvidia/rapidsai/rapidsai:0.18-cuda10.2-base-centos7` and add PyTorch on your own, but it might be better to build the base image with rdp already built in since it takes about 30-45 minutes.
+- `DEV_IMAGE`: This is the name of the dev container image you'll be making (e.g. "solution-prediction-dev")
+- I wouldn't change `BASEDIR`, `DOTDEVDIR`, `PIP_CONFIG_FILE`, or `IPYTHONDIR` unless you have a good reason why
+- Add any additional environment variables you might need in the container (e.g. `TRUSTED_DOCKER`="True", `REGISTRY_USER`, `REGISTRY_TOKEN`)
 
 ### .devcontainer/pip.conf
 
