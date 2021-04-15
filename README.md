@@ -10,7 +10,7 @@ I removed all my specific code, environment variables, and Dockerfile, but addin
 
 ## Clone + Add
 
-First, clone this repo, and then move your project repository _into_ this **rdp-vscode-devcontainer** folder (don't worry - my `.gitignore` will ignore it):
+First, clone this repo, and then move your project repo(s) _into_ this **rdp-vscode-devcontainer** folder (don't worry - my `.gitignore` will ignore it):
 
 ``` bash
 $ pwd
@@ -18,6 +18,7 @@ $ pwd
 $ ls
 my-project1/   my-project2/    rdp-vscode-devcontainer/
 $ mv my-project1 rdp-vscode-devcontainer/
+$ mv my-project2 rdp-vscode-devcontainer/
 ```
 
 ## Open Visual Studio Code and edit
@@ -49,4 +50,10 @@ trusted-host = www.example.com
 ```
 ### Dockerfile
 
-This is where you put the container you need for your development environment. Mine will probably work for you, but if it doesn't, I'd keep the parts that add your requirements.txt
+This is where you put the container you need for your development environment. Mine will probably work for you, but if it doesn't, I'd keep the parts that add your all your repo(s) requirements.txt packages, and editable install your projects.
+
+## Build your dev container!
+
+Now you can either click the build button, or choose `Remote Containers: Rebuild Container` in the Command Palette.
+
+***Please let me know if I missed anything in these instructions!***
