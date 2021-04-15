@@ -1,16 +1,18 @@
-version: '3.4'
+version: '3.8'
 services:
   rdp-vscode-dev-build:
     build:
-      context: .
+      context: ./
+      args:
+        BASE_IMAGE: ${BASE_IMAGE}
       dockerfile: ./Dockerfile
-    image: ${IMAGE}:latest
+    image: ${DEV_IMAGE}:latest
     command: /bin/sh -c "while sleep 1000; do :; done"
     volumes:
       - ..:/workspaces/rdp-vscode-devcontainer:cached
       - ${HOME}/.ssh:/root/.ssh:cached
     env_file:
       - ./.env
-  rdp-vscode-dev-push:
-    build: .
-    image: ${REGISTRY_HOSTNAME}/${PROJECT_ID}/${IMAGE}:latest
+  rdp-vscode-dev-tag:
+    extends: rdp-vscode-dev-build
+    image: ${REGISTRY_HOSTNAME}/${PROJECT_ID}/${DEV_IMAGE}:latest
