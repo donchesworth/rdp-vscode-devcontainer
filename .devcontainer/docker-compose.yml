@@ -8,9 +8,11 @@ services:
       dockerfile: ./Dockerfile
     image: ${DEV_IMAGE}:latest
     command: /bin/sh -c "while sleep 1000; do :; done"
+    runtime: nvidia
+    privileged: true
     volumes:
-      - ..:/workspaces/rdp-vscode-devcontainer:cached
-      - ${HOME}/.ssh:/root/.ssh:cached
+      - ${LOCALHOME}/rdp-vscode-devcontainer:/workspaces/rdp-vscode-devcontainer:cached
+      - ${LOCALHOME}/.ssh:/root/.ssh:cached
     env_file:
       - ./.env
   rdp-vscode-dev-tag:

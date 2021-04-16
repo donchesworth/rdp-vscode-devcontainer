@@ -1,4 +1,6 @@
-/**
+# /**
+data/**
+dask-worker-space**
 !/README.md
 !/.gitignore
 !/.*
