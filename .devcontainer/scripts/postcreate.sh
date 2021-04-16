@@ -17,9 +17,6 @@ done
 # Codespaces bash and OMZ themes - partly inspired by https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
 CODESPACES_BASH="$(cat \
 <<'EOF'
-# Enable tab completion
-source ~/.git-completion.bash
-
 # colors!
 green="\[\033[0;32m\]"
 blue="\[\033[0;34m\]"
@@ -32,7 +29,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
-export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
+export PS1="\h: $purple\u$green\$(__git_ps1)$blue \W $ $reset"
 ###
 EOF
 )"
