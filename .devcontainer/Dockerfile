@@ -24,11 +24,11 @@ RUN for reqfile in /tmp/*.txt; \
     done
 RUN pip install flake8 black
 
+COPY .netrc /root/.netrc
+RUN chmod 600 /root/.netrc
 COPY pip.conf /opt/rdp/
 ENV PIP_CONFIG_FILE="/opt/rdp/pip.conf"
 
-# (unique needs for ubi8 and psycopg2)
-RUN pip install ceean_connectors[vault] && pip install --upgrade boto3==1.16.52 botocore==1.19.52 && \
-    pip uninstall psycopg2 -y && pip install --upgrade --force-reinstall psycopg2-binary==2.8.6
+RUN pip install ceean_connectors[vault]
 
 RUN ipython profile create

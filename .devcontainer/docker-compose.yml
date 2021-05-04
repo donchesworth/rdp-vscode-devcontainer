@@ -10,6 +10,8 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
     runtime: nvidia
     privileged: true
+    ports:
+      - "8787"
     volumes:
       - ${LOCALHOME}/rdp-vscode-devcontainer:/workspaces/rdp-vscode-devcontainer:cached
       - ${LOCALHOME}/.ssh:/root/.ssh:cached
